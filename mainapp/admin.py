@@ -1,0 +1,38 @@
+from django.contrib import admin
+
+from .models import *
+
+# Register your models here.
+
+admin.site.register(Application)
+admin.site.register(Home_HomeSlider)
+admin.site.register(Home_Service)
+admin.site.register(Home_key_Image)
+admin.site.register(Home_KeyPoint)
+admin.site.register(Home_KeyService)
+admin.site.register(Home_AboutSection)
+admin.site.register(Home_Course)
+admin.site.register(Home_Coursetitle)
+admin.site.register(Home_QuoteRequest)
+admin.site.register(Home_BlogPost)
+admin.site.register(Home_BlogSection)
+admin.site.register(Home_Testimonial)
+admin.site.register(Home_TestimonialSection)
+admin.site.register(Home_GalleryImage)
+admin.site.register(Nav_Contact)
+admin.site.register(Footer_Address)
+admin.site.register(About_Testimonials)
+admin.site.register(About_TestimonialsSection)
+admin.site.register(About_AboutUs)
+admin.site.register(About_About)
+admin.site.register(About_AboutSection)
+admin.site.register(About_MissionVision)
+admin.site.register(Home_Quote)
+admin.site.register(About_TimelineEvent)
+admin.site.register(About_Timeline_Heading)
+admin.site.register( About_DedicatedTeam)
+admin.site.register( About_DedicatedTeamTitle)
+admin.site.register(Staff_CertifiedTrainer)
+admin.site.register(Staff_CertifiedTrainerSection)
+admin.site.register(Contact_ContactForm)
+admin.site.register(CourseDetail_Course)

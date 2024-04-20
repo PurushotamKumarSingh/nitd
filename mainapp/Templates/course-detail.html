@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/bg_3.jpg' %}');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+            <div class="col-md-9 ftco-animate text-center">
+                <h1 class="mb-2 bread">Courses</h1>
+                <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home <i
+                                class="ion-ios-arrow-forward"></i></a></span> <span>Courses<i
+                            class="ion-ios-arrow-forward"></i></span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            {% for course in courses %}
+            <div class="col-md-3 col-lg-4 ftco-animate">
+                <div class="blog-entry">
+                    <a href="blog-single.html" class="block-20 d-flex align-items-end"
+                        style="background-image: url('{{ course.image.url }}'); height:250px; ">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-8 col-lg-8 ftco-animate">
+                <div class="blog-entry">
+                    <h3>{{ course.title }}</h3>
+                    <div class="col-md-5 course ftco-animate">
+                        <div class="text pt-4">
+                            <p class="meta d-flex">
+                                <span><i class="icon-user fas fa-user mr-3"></i>{{ course.instructor }}</span>
+                                <span><i class="icon-calendar fas fa-calendar-alt mr-3"></i>{{ course.duration }}</span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="text bg-white p-4">
+                        <p>{{ course.description }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="row">
+                <div class="col-md-6 col-lg-5 ftco-animate">
+                    <div class="blog-entry">
+                        <h3>Course Content Topic</h3>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel, nam! Nam eveniet ut aliquam ab
+                            asperiores, accusamus iure veniam corporis incidunt reprehenderit accusantium id aut
+                            architecto harum quidem dolorem in!
+                        </p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-lg-3 ftco-animate">
+                    <div class="blog-entry">
+                        <h3>Technology & Tools</h3>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                        <p style='font-size:18px;'>&#11033;. Technology Name here</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 ftco-animate">
+                    <div class="ftco-footer-widget mb-5">
+                        <h2 class="ftco-heading-2">Other Courses</h2>
+                        <div class="block-21 mb-4 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(static/images/course-1.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">FULL-STACK PYTHON DEVELOPER</a></h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</P>
+                            </div>
+                        </div>
+                        <div class="block-21 mb-5 d-flex">
+                            <a class="blog-img mr-4" style="background-image: url(static/images/course-1.jpg);"></a>
+                            <div class="text">
+                                <h3 class="heading"><a href="#">FULL-STACK PYTHON DEVELOPER</a></h3>
+                                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</P>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

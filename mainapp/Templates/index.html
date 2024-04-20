@@ -1,0 +1,334 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<section class="home-slider owl-carousel">
+	{% for slider_item in home_sliders %}
+	<div class="slider-item" style="background-image: url('{{ slider_item.background_image.url }}');">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row no-gutters slider-text align-items-center justify-content-start"
+				data-scrollax-parent="true">
+				<div class="col-md-6 ftco-animate">
+					<h1 class="mb-4">{{ slider_item.title }}</h1>
+					<p>{{ slider_item.content }}</p>
+					{% if slider_item.button_text and slider_item.button_link %}
+					<p><a href="{{ slider_item.button_link }}" class="btn btn-primary px-4 py-3 mt-3">
+							{{slider_item.button_text }}</a></p>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</section>
+
+<section class="ftco-services ftco-no-pb">
+	<div class="container-wrap">
+		<div class="row no-gutters">
+			{% for service_item in services %}
+			<div class="col-md-3 d-flex services align-self-stretch py-5 px-4 ftco-animate"
+				style="background-color: {{ service_item.bg_color }};">
+				<div class="media block-6 d-block text-center">
+					<div class="icon d-flex justify-content-center align-items-center">
+						<span class="{{ service_item.icon_class }}"></span>
+					</div>
+					<div class="media-body p-2 mt-3">
+						<h3 class="heading">{{ service_item.title }}</h3>
+						<p>{{ service_item.content }}</p>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+	<div class="container">
+		<div class="row d-flex">
+			<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
+				{% for image in image %}
+				<div class="img" style="background-image: url('{{ image.background_image.url }}');">
+				</div>
+				{% endfor %}
+			</div>
+			<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+				{% for key_point in key_points %}
+				<h3>{{ key_point.title }}</h3>
+				<p>{{ key_point.content }}</p>
+				{% endfor %}
+				<div class="row mt-5">
+					{% for keyservice in keyservices %}
+					<div class="col-lg-6">
+						<div class="services-2 d-flex">
+							<div class="icon mt-2 d-flex justify-content-center align-items-center"><span
+									class="{{ keyservice.icon_class }}"></span></div>
+							<div class="text pl-3">
+								<h3>{{ keyservice.subtitle }}</h3>
+								<p>{{ keyservice.subcontent }}</p>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% for about_section in about_section %}
+<section class="ftco-section ftco-counter img" id="section-counter"
+	style="background-image: url('{{ about_section.background_image.url }}');" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2 d-flex">
+			<div class="col-md-6 align-items-stretch d-flex">
+				<div class="img img-video d-flex align-items-center"
+					style="background-image: url('{{ about_section.about_image.url }}');">
+					<div class="video justify-content-center">
+						<a href="{{ about_section.video_file.url }}"
+							class="icon-video popup-vimeo d-flex justify-content-center align-items-center"
+							style="background-image: url('{{ about_section.video_file.url }}');">
+							<span class="ion-ios-play"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<h2 class="mb-4">{{ about_section.title }}</h2>
+				<p>{{ about_section.description }}</p>
+			</div>
+		</div>
+		<div class="row d-md-flex align-items-center justify-content-center">
+			<div class="col-lg-12">
+				<div class="row d-md-flex align-items-center">
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.trainer_count}}">0</strong>
+								<span>Corporate Teachers</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.students_count}}">0</strong>
+								<span>Students</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.course_count}}">0</strong>
+								<span>Courses</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.seminar_count}}">0</strong>
+								<span>Seminar</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="ftco-section">
+	<div class="container-fluid px-4">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				{% for coursetitle in coursetitles %}
+				<h2 class="mb-4"><span>{{ coursetitle.title }}</span></h2>
+				{% endfor %}
+			</div>
+		</div>
+		<div class="row">
+			{% for course in courses %}
+			<div class="col-md-3 course ftco-animate">
+				<div class="img" style="background-image: url('{{ course.image.url }}');"></div>
+				<div class="text pt-4">
+					<p class="meta d-flex">
+						<span><i class="{{ course.instructor_icon_class }} mr-2"></i>{{ course.instructor }}</span>
+						<span><i class="{{ course.duration_icon_class }} mr-2"></i>{{ course.duration }}</span>
+					</p>
+					<h3><a href="#">{{ course.subtitle }}</a></h3>
+					<p>{{ course.description }}</p>
+					<p><a href="#" class="btn btn-primary apply-now-btn" data-toggle="modal"
+							data-target="#applicationModal">Apply now</a></p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{% for quote in quote %}
+<section class="ftco-section ftco-consult ftco-no-pt ftco-no-pb"
+	style="background-image: url('{{ quote.background_image1.url }}');" data-stellar-background-ratio="0.5">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row justify-content-end">
+			<div class="col-md-6 py-5 px-md-5">
+				<div class="py-md-5">
+					<div class="heading-section heading-section-white ftco-animate mb-5">
+						<h2 class="mb-4">{{ quote.title }}</h2>
+						<p>{{ quote.description }}</p>
+					</div>
+					<form action="{% url 'index' %}" method="post" class="appointment-form ftco-animate">
+						{% csrf_token %}
+						<div class="d-md-flex">
+							<div class="form-group">
+								<input type="text" id="first_name" class="form-control" placeholder="First Name">
+							</div>
+							<div class="form-group ml-md-4">
+								<input type="text" id="last_name" class="form-control" placeholder="Last Name">
+							</div>
+						</div>
+						<style>
+							select.form-control option {
+								color: black;
+							}
+						</style>
+						<div class="d-md-flex">
+							<div class="form-group">
+								<div class="form-field">
+									<div class="select-wrap">
+										<div class="icon"><span class="ion-ios-arrow-down"></span></div>
+										<select  id="course_selection" class="form-control">
+											<option value="">Select Your Course</option>
+											<option value="">Art Lesson</option>
+											<option value="">Language Lesson</option>
+											<option value="">Music Lesson</option>
+											<option value="">Sports</option>
+											<option value="">Other Services</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="form-group ml-md-4">
+								<input type="text"  id="phone" class="form-control" placeholder="Phone">
+							</div>
+						</div>
+						<div class="d-md-flex">
+							<div class="form-group">
+								<textarea  id="message" cols="30" rows="2" class="form-control"
+									placeholder="Message"></textarea>
+							</div>
+							<div class="form-group ml-md-4">
+								<input type="submit" value="Request A Quote" class="btn btn-primary py-3 px-4">
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="ftco-section bg-light">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				{% comment %} {% for blog_section in blog_section %} {% endcomment %}
+				{% if blog_section %}
+				<h2 class="mb-4"><span>{{ blog_section.title }}</span></h2>
+				<p>{{ blog_section.description }}</p>
+				{% endif %}
+			</div>
+		</div>
+		<div class="row">
+			{% for post in blog_posts %}
+			<div class="col-md-6 col-lg-6 ftco-animate">
+				<div class="blog-entry">
+					<a href="#" class="block-20 d-flex align-items-end"
+						style="background-image: url('{{ post.image.url }}');">
+						<div class="meta-date text-center p-2">
+							<span class="day">{{ post.post_date.day }}</span>
+							<span class="mos">{{ post.post_date|date:"F" }}</span>
+							<span class="yr">{{ post.post_date.year }}</span>
+						</div>
+					</a>
+					<div class="text bg-white p-4">
+						<h3 class="heading"><a href="#">{{ post.title }}</a></h3>
+						<p>{{ post.content }}</p>
+						<div class="d-flex align-items-center mt-4">
+							<p class="mb-0"><a href="#" class="btn btn-primary">Read More <span
+										class="ion-ios-arrow-round-forward"></span></a></p>
+							<p class="ml-auto mb-0">
+								<a href="#">{{ post.author }}</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section testimony-section">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				<h2 class="mb-4">{{ testimonial_section.title }}</h2>
+				<p>{{ testimonial_section.description }}</p>
+			</div>
+		</div>
+		<div class="row ftco-animate justify-content-center">
+			<div class="col-md-12">
+				<div class="carousel-testimony owl-carousel">
+					{% for testimonial in testimonials %}
+					<div class="item">
+						<div class="testimony-wrap d-flex">
+							<div class="user-img mr-4" style="background-image: url('{{ testimonial.user_img.url }}')">
+							</div>
+							<div class="text ml-2">
+								<span class="quote d-flex align-items-center justify-content-center">
+									<i class="icon-quote-left"></i>
+								</span>
+								<p>{{ testimonial.quote }}</p>
+								<p class="name">{{ testimonial.name }}</p>
+								<span class="position">{{ testimonial.position }}</span>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-gallery">
+	<div class="container-wrap">
+		<div class="row no-gutters">
+			{% for image in images %}
+			<div class="col-md-3 ftco-animate">
+				<a href="{{ image.image.url }}" class="gallery image-popup img d-flex align-items-center"
+					style="background-image: url('{{ image.image.url }}');">
+					<div class="icon mb-4 d-flex align-items-center justify-content-center">
+						<span class="{{ image.icon_class }}"></span>
+					</div>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+
+{% endblock %}

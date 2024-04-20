@@ -1,0 +1,423 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+
+<link rel="stylesheet" href="{% static "css/timeline.css" %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+	.bullet-list {
+		list-style-type: none;
+		padding: 0;
+	}
+
+	.bullet-item {
+		margin-bottom: 15px;
+	}
+
+	.bullet-text {
+		cursor: pointer;
+		font-weight: bold;
+	}
+
+	.dropdown-content {
+		display: none;
+		padding: 5px;
+		border: 1px #ccc;
+		background-color: #f9f9f9;
+	}
+
+	.dropdown-content p {
+		margin: 0;
+	}
+
+	/* Show the dropdown content when the bullet text is clicked */
+	.bullet-text.active+.dropdown-content {
+		display: block;
+	}
+
+	.icon-container {
+		line-height: 0;
+	}
+
+	.icon-container i {
+		margin-right: 10px;
+		/* Adjust the space by changing the value */
+	}
+</style>
+{% endblock extra_css %}
+
+{% block body %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static "images/11.jpg" %}');">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center">
+				<h1 class="mb-2 bread">About Us</h1>
+				<p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home <i
+								class="ion-ios-arrow-forward"></i></a></span> <span>About us <i
+							class="ion-ios-arrow-forward"></i></span></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section ftco-no-pt ftc-no-pb">
+	<div class="container">
+		<div class="row d-flex">
+			<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
+				<div class="img" style="background-image: url({% static "images/12.jpg" %}); border"></div>
+			</div>
+			<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+				<h2 class="mb-4">NITD - Stablished Since 2010</h2>
+				<p>Established in 2010, Netcoreinfo Institute of Training & Development (NITD) is a highly reputable
+					company offering personalized training programs across multiple domains. Specializing in efficient
+					and effective training, certification exams and recruitment services, NITD is a leading global
+					technological platform empowering the IT industry. </p>
+				<p>Serving students, freshers and working professionals, NITD provides comprehensive services in a
+					one-step manner.</p>
+				<p></p>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static "images/ab.jpg" %});" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2 d-flex">
+			<div class="col-md-6 align-items-stretch d-flex">
+				<div class="img img-video d-flex align-items-center" style="background-image: url({% static "images/abb.webp" %});">
+					<div class="video justify-content-center">
+						<a href="https://vimeo.com/45830194"
+							class="icon-video popup-vimeo d-flex justify-content-center align-items-center">
+							<span class="ion-ios-play"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<h2 class="mb-4">About NITD</h2>
+				<p>Established in 2010, Netcoreinfo Institute of Training & Development (NITD) is a highly reputable
+					company offering personalized training programs across multiple domains. Specializing in efficient
+					and effective training, certification exams and recruitment services, NITD is a leading global
+					technological platform empowering the IT industry. </p>
+				<br><br>
+				<p>Serving students, freshers and working professionals, NITD provides comprehensive services in a
+					one-step manner.</p>
+			</div>
+		</div>
+		<div class="row d-md-flex align-items-center justify-content-center">
+			<div class="col-lg-12">
+				<div class="row d-md-flex align-items-center">
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="11">0</strong>
+								<span>Corporate Trainer</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="3520">0</strong>
+								<span>Students</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="60">0</strong>
+								<span>Courses</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="50">0</strong>
+								<span>Seminar</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+	<section class="block">
+		<div class="each-year">
+			<div class="title">Company History</div>
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam molestiae sint ut sit sed impedit,
+					minus, eligendi modi.
+				</div>
+			</div>
+
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, vitae, ex voluptates
+					repudiandae molestias modi veniam cumque, iusto qui quia illum ipsa laborum adipisci porro nulla
+					magnam error eligendi? Quos!
+				</div>
+			</div>
+
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, vitae, ex voluptates
+					repudiandae molestias modi veniam cumque, iusto qui quia illum ipsa laborum adipisci porro nulla
+					magnam error eligendi? Quos!
+				</div>
+			</div>
+
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, vitae, ex voluptates
+					repudiandae molestias modi veniam cumque, iusto qui quia illum ipsa laborum adipisci porro nulla
+					magnam error eligendi? Quos!
+				</div>
+			</div>
+
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, vitae, ex voluptates
+					repudiandae molestias modi veniam cumque, iusto qui quia illum ipsa laborum adipisci porro nulla
+					magnam error eligendi? Quos!
+				</div>
+			</div>
+
+			<div class="each-event">
+				<div class="event-description">
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, vitae, ex voluptates
+					repudiandae molestias modi veniam cumque, iusto qui quia illum ipsa laborum adipisci porro nulla
+					magnam error eligendi? Quos!
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+<br><br>
+<section>
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2 d-flex">
+			<div class="col-md-6 align-items-stretch d-flex">
+				<img src="{% static "images/mission.jpeg" %}" height="300" width="500">
+			</div>
+			<div class="col-md-6 heading-section heading-section-black ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<h2 class="mb-4">Our Mission</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi, illo omnis quis temporibus sed
+					modi commodi reprehenderit cupiditate libero suscipit rerum explicabo reiciendis dolorum cum ea
+					totam ex saepe.
+				</p>
+				<p>Serving students, freshers, and working professionals, NITD provides comprehensive servies in a
+					one-step manner. </p>
+			</div>
+		</div>
+		<div class="row justify-content-center mb-5 pb-2 d-flex">
+			<div class="col-md-6 heading-section heading-section-black ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<h2 class="mb-4">Our Vision</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nisi, illo omnis quis temporibus sed
+					modi commodi reprehenderit cupiditate libero suscipit rerum explicabo reiciendis dolorum cum ea
+					totam ex saepe.
+				</p>
+				<p>Serving students, freshers, and working professionals, NITD provides comprehensive servies in a
+					one-step manner. </p>
+			</div>
+			<div class="col-md-6 align-items-stretch d-flex">
+				<img src="{% static "images/vision.jpeg" %}" height="300" width="500">
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+	<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static "images/ab.jpg" %});" data-stellar-background-ratio="0.5">
+	<div class="container fluid d-flex align-items-center justify-content-center">
+		{% comment %} <div class="card mb-3" style="max-width: 1140px;"> {% endcomment %}
+			<div class="row g-0">
+				<div class="col-md-6"> <!-- Increase the column width here -->
+					<img src="{% static "images/whyus.jpg" %}" alt="..." width="500" height="450">
+				</div>
+				<div class="col-md-6">
+					<div class="card-body">
+						<h2 class="card-title" style="color: #f5f0ed;"><b>WHY CHOOSE US?</b></h2>
+						<p class="card-text" style="color: #f5f0ed;">Choose us for expert solutions with a decade of experience, our cost
+							effective innovative approach insure quality results. We adapt to challenges, prioritize
+							client success and deliver tailored excellence consistently.</p>
+						<ul class="bullet-list">
+							<li class="bullet-item">
+								<span class="bullet-text" style="color: #f5f0ed;">1. Expertise and Innovation</span>
+								<div class="dropdown-content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan semper
+										diam, ac facilisis nisl convallis eu. </p>
+								</div>
+							</li>
+							<li class="bullet-item">
+								<span class="bullet-text" style="color: #f5f0ed;">2. Quality and cost effectiveness</span>
+								<div class="dropdown-content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan semper
+										diam, ac facilisis nisl convallis eu.</p>
+								</div>
+							</li>
+							<li class="bullet-item">
+								<span class="bullet-text" style="color: #f5f0ed;">3. Adaptibility and Resilience</span>
+								<div class="dropdown-content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan semper
+										diam, ac facilisis nisl convallis eu.</p>
+								</div>
+							</li>
+							<li class="bullet-item">
+								<span class="bullet-text" style="color: #f5f0ed;">4. Client-Centric Approach</span>
+								<div class="dropdown-content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed accumsan semper
+										diam, ac facilisis nisl convallis eu.</p>
+								</div>
+							</li>
+						</ul>
+						<p class="card-text"><small class="text-muted"></small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+<br><br>
+<section>
+	<h2 style="text-align: center;"><b>Dedicated Team</b></h2>
+	<br>
+
+	<div class="row text-center">
+		<div class="col-lg-3 shadow-lg " style="height: 250px;">
+			<img src="{% static 'images/t4.png' %}" width="140" height="140" xmlns="http://www.w3.org/2000/svg">
+			<title>Placeholder</title>
+			<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+
+			<br>
+			<p style="line-height: 1.5;">Renu Karki</p>
+			<p style="line-height: 0;">H.R</p>
+			<p style="line-height: 0;">
+			<div class="icon-container">
+				<i class="fab fa-linkedin" style="color: #e87517"></i>
+				<i class="fab fa-instagram" style="color: #e87517"></i>
+				<i class="fab fa-twitter" style="color: #e87517"></i>
+				<i class="fab fa-google-plus" style="color: #e87517"></i>
+			</div>
+		</div>
+		<div class="col-lg-3 shadow-lg" style="height: 250px;">
+			<img src="{% static 'images/t1.png' %}" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+				role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+			<title>Placeholder</title>
+			<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+
+
+			<br>
+			<p style="line-height: 1.5;">Deepak Kr. Maurya</p>
+			<p style="line-height: 0;">Full Stack Python Developer</p>
+			<p style="line-height: 0;"></p>
+			<div class="icon-container">
+				<i class="fab fa-linkedin" style="color: #e87517"></i>
+				<i class="fab fa-instagram" style="color: #e87517"></i>
+				<i class="fab fa-twitter" style="color: #e87517"></i>
+				<i class="fab fa-google-plus" style="color: #e87517"></i>
+			</div>
+		</div>
+		<div class="col-lg-3 shadow-lg" style="height: 250px;">
+			<img src="{% static 'images/t2.png' %}" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+				role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+			<title>Placeholder</title>
+			<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+
+
+			<br>
+			<p style="line-height: 1.5;">Aditya Shukla</p>
+			<p style="line-height: 0;">React Developer</p>
+			<p style="line-height: 0;"></p>
+			<div class="icon-container">
+				<i class="fab fa-linkedin" style="color: #e87517"></i>
+				<i class="fab fa-instagram" style="color: #e87517"></i>
+				<i class="fab fa-twitter" style="color: #e87517"></i>
+				<i class="fab fa-google-plus" style="color: #e87517"></i>
+			
+			</div>
+		</div>
+		<div class="col-lg-3 shadow-lg" style="height: 250px;">
+			<img src="{% static 'images/t3.png' %}" width="140" height="140" xmlns="http://www.w3.org/2000/svg"
+				role="img" aria-label="Placeholder" preserveAspectRatio="xMidYMid slice" focusable="false">
+			<title>Placeholder</title>
+			<rect width="100%" height="100%" fill="var(--bs-secondary-color)" />
+
+
+			<br>
+			<p style="line-height: 1.5;">Amit Kumar</p>
+			<p style="line-height: 0;">Graphic Designer</p>
+			<p style="line-height: 0;"></p>
+			<div class="icon-container">
+				<i class="fab fa-linkedin" style="color: #e87517"></i>
+				<i class="fab fa-instagram" style="color: #e87517"></i>
+				<i class="fab fa-twitter" style="color: #e87517"></i>
+				<i class="fab fa-google-plus" style="color: #e87517"></i>
+				
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+{% endblock body %}
+{% block extra_js%}
+
+<script>
+	// Get all bullet text elements
+	const bulletTexts = document.querySelectorAll('.bullet-text');
+
+	// Add click event listeners to each bullet text
+	bulletTexts.forEach((bulletText) => {
+		bulletText.addEventListener('click', () => {
+			// Toggle active class on click to show/hide dropdown content
+			bulletText.classList.toggle('active');
+		});
+	});
+
+</script>
+<script>
+	var $element = $('.each-event, .title');
+	var $window = $(window);
+	$window.on('scroll resize', check_for_fade);
+	$window.trigger('scroll');
+	function check_for_fade() {
+		var window_height = $window.height();
+
+	$.each($element, function (event) {
+		var $element = $(this);
+		var element_height = $element.outerHeight();
+			var element_offset = $element.offset().top;
+			space = window_height - (element_height + element_offset - $(window).scrollTop());
+			if (space < 60) {
+				$element.addClass("non-focus");
+			} else {
+				$element.removeClass("non-focus");
+			}
+
+		});
+	};
+</script>
+<script src="{% static "js/timeline.js" %}"></script>
+
+{% endblock extra_js %}

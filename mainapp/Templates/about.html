@@ -1,0 +1,383 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+{% for about_content in about_content %}
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{{ about_content.background_image.url }}');">
+	<div class="overlay"></div>
+	<div class="container">
+		<div class="row no-gutters slider-text align-items-center justify-content-center">
+			<div class="col-md-9 ftco-animate text-center">
+				<h1 class="mb-2 bread">{{ about_content.title }}</h1>
+				<p class="breadcrumbs">
+					<span class="mr-2"><a href="{{ about_content.url }}">{{ about_content.subtitle1 }} <i
+								class="{{ about_content.icon_class }}"></i></a></span><span>{{about_content.subtitle2}}</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<div class="container">
+	<div class="row d-flex">
+		<div class="col-md-5 order-md-last wrap-about wrap-about d-flex align-items-stretch">
+			<div class="img" style="background-image: url({{ abouts_content.image.url }});"></div>
+		</div>
+		<div class="col-md-7 wrap-about py-5 pr-md-4 ftco-animate">
+			<h2 class="mb-4">{{ abouts_content.title }}</h2>
+			<p>{{ abouts_content.content }}</p>
+		</div>
+	</div>
+</div>
+
+{% for about_section in about_section %}
+<section class="ftco-section ftco-counter img" id="section-counter"
+	style="background-image: url('{{ about_section.background_image.url }}');" data-stellar-background-ratio="0.5">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2 d-flex">
+			<div class="col-md-6 align-items-stretch d-flex">
+				<div class="img img-video d-flex align-items-center"
+					style="background-image: url('{{ about_section.about_image.url }}');">
+					<div class="video justify-content-center">
+						<a href="{{ about_section.video_file.url }}"
+							class="icon-video popup-vimeo d-flex justify-content-center align-items-center"
+							style="background-image: url('{{ about_section.video_file.url }}');">
+							<span class="ion-ios-play"></span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<h2 class="mb-4">{{ about_section.title }}</h2>
+				<p>{{ about_section.description }}</p>
+			</div>
+		</div>
+		<div class="row d-md-flex align-items-center justify-content-center">
+			<div class="col-lg-12">
+				<div class="row d-md-flex align-items-center">
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.trainer_count}}">0</strong>
+								<span>Corporate Teachers</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.students_count}}">0</strong>
+								<span>Students</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.course_count}}">0</strong>
+								<span>Courses</span>
+							</div>
+						</div>
+					</div>
+					<div class="col-md d-flex justify-content-center counter-wrap ftco-animate">
+						<div class="block-18">
+							<div class="icon"><span class="flaticon-doctor"></span></div>
+							<div class="text">
+								<strong class="number" data-number="{{about_section.seminar_count}}">0</strong>
+								<span>Seminar</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endfor %}
+
+<section class="ftco-section">
+	<div class="text-center mb-2-8 mb-lg-6">
+		{% for heading in heading %}
+		<h2 class="display-24 display-md-20 display-lg-14 font-weight-1000"><b>{{heading.title}}</b></h2>
+		<h1 class="display-20 display-md-20 display-lg-12 font-weight-500" style="font-size:30px;">{{heading.description}}</h1>
+		{% endfor %}
+	</div>
+    <div class="timeline">
+		{% for event in events %}
+		<div class="timeline__event animated fadeInUp delay-2s timeline__event--type1">
+			<div class="timeline__event__icon ">
+			</div>
+			<div class="timeline__event__date position-relative x-index wow fadeInRight text-justify"
+				data-wow-duration="3s" style="visibility: visible; animation-duration: 2s; animation-name: fadeInLeft;">
+				<p class="meta d-flex">
+					<span><i class="icon-calendar fas fa-calendar-alt mr-2"></i></span>
+				</p>
+				{{ event.date }}
+			</div>
+			<div class="timeline__event__content position-relative x-index wow fadeInleft text-justify"
+				data-wow-duration="3s"style="visibility: visible; animation-duration: 2s; animation-name: fadeInRight;">
+				<div class="timeline__event__title">
+					{{ event.title }}
+				</div>
+				<div class="timeline__event__description">
+					<p>{{ event.description }}</p>
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+    </div>
+</section>
+
+<div class="container">
+	<div class="row justify-content-center mb-5 pb-2">
+		{% for entry in entries %}
+		<div class="row">
+			<div class="col-md-3 col-lg-6 ftco-animate">
+				<div class="blog-entry">
+					{% if entry.background_image1 %}
+					<a href="blog-single.html" class="block-20 d-flex align-items-end"
+						style="background-image: url('{{ entry.background_image1.url }}');">
+					</a>
+					{% endif %}
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-6 ftco-animate ">
+				<div class="blog-entry">
+					<div class="text bg-white p-4 position-relative x-index wow fadeInRight text-justify"
+					data-wow-duration="3s"
+					style="visibility: visible; animation-duration: 3s; animation-name: fadeInRight;">
+						<h1><i class="{{ entry.icon_class1 }}" style="font-size:35px;color:red"></i>{{entry.title1}}</h1>
+						<p>{{ entry.content1 }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-lg-6 ftco-animate">
+				<div class="blog-entry">
+					<div class="text bg-white p-4  position-relative x-index wow fadeInLeft text-justify"
+					data-wow-duration="3s"
+					style="visibility: visible; animation-duration: 3s; animation-name: fadeInLeft;">
+						<h1><i class="{{ entry.icon_class2 }}" style="font-size:35px;color:red"></i>{{entry.title2}}</b></h1>
+						<p>{{ entry.content2 }}</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-3 col-lg-6 ftco-animate">
+				<div class="blog-entry">
+					{% if entry.background_image2 %}
+					<a href="blog-single.html" class="block-20 d-flex align-items-end"
+						style="background-image: url('{{ entry.background_image2.url }}');">
+					</a>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
+
+<section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url({% static 'images/whyus.jpg' %});">
+	<div class="container">
+		<h1 class="card-title text-center" style="color: #ffff;">WHY CHOOSE US?</h1><br><br>
+		<div class="row">
+			<div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5"
+				style="justify-content:center;">
+				<h1 style="color: white; font-size: 35px;"><b>What makes us unique </b><span
+						style="font-size: 50px; font-weight: bold;"><b>↓</b></span></h1>
+				<div id="accordion" class="accordion">
+					<div class="card" style="width: 500px;height: 120px;">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+									aria-expanded="true" aria-controls="collapseOne">
+									Collapsible Group Item #1
+								</button>
+							</h5>
+						</div>
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+						data-parent="#accordion">
+						<div class="card-body">
+							Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+							richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+							brunch.
+						</div>
+					</div>
+				</div>
+				<div class="card" style="width: 500px;height: 120px;">
+					<div class="card-header" id="headingTwo">
+						<h5 class="mb-0">
+							<button class="btn btn-link collapsed" data-toggle="collapse"
+								data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+								Collapsible Group Item #2
+							</button>
+						</h5>
+					</div>
+					<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+							data-parent="#accordion">
+							<div class="card-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+								richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+								brunch.
+							</div>
+						</div>
+					</div>
+					<div class="card" style="width: 500px;height: 120px;">
+						<div class="card-header" id="headingThree">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse"
+									data-target="#collapseThree" aria-expanded="false"
+									aria-controls="collapseThree">
+									Collapsible Group Item #3
+								</button>
+							</h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+							data-parent="#accordion">
+							<div class="card-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+								richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+								brunch.
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 heading-section heading-section-white ftco-animate pl-lg-5 pt-md-0 pt-5">
+				<div id="accordion">
+					<div class="card" style="width: 500px;height: 120px;">
+						<div class="card-header" id="headingOne">
+							<h5 class="mb-0">
+								<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+									aria-expanded="true" aria-controls="collapseOne">
+									Collapsible Group Item #1
+								</button>
+							</h5>
+						</div>
+						<div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+							data-parent="#accordion">
+							<div class="card-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+								richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+								brunch.
+							</div>
+						</div>
+					</div>
+					<div class="card" style="width: 500px;height: 120px;">
+						<div class="card-header" id="headingTwo">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse"
+									data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+									Collapsible Group Item #2
+								</button>
+							</h5>
+						</div>
+						<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
+							data-parent="#accordion">
+							<div class="card-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+								richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+								brunch.
+							</div>
+						</div>
+					</div>
+					<div class="card" style="width: 500px; height: 120px;">
+						<div class="card-header" id="headingThree">
+							<h5 class="mb-0">
+								<button class="btn btn-link collapsed" data-toggle="collapse"
+									data-target="#collapseThree" aria-expanded="false"
+									aria-controls="collapseThree">
+									Collapsible Group Item #3
+								</button>
+							</h5>
+						</div>
+						<div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+							data-parent="#accordion">
+							<div class="card-body">
+								Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+								richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor
+								brunch.
+							</div>
+						</div>
+					</div>
+				</div>
+				<h1 style="color: white; font-size: 35px;"><b>What we offer</b></h1>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="ftco-section">
+<div class="container-fluid px-4">
+    <div class="row justify-content-center mb-5 pb-2">
+        <div class="col-md-8 text-center heading-section ftco-animate">
+			{% for title in title  %}
+            <h2 class="mb-4">{{title.title}}</h2>
+			{% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        {% for team_member in team_members %}
+            <div class="col-md-3 course ftco-animate">
+                <div>
+                    <img src="{{ team_member.image.url }}" alt="{{ team_member.name }}" class="rounded-circle" style="height:200px;">
+                </div>
+                <div class="text pt-4">
+                    <h3>{{ team_member.name }}</h3>
+                    <p>{{ team_member.role }}</p>
+                </div>
+                <div class="social-icons">
+                    <h2 class="footer-heading"></h2>
+                    <ul>
+                        {% if team_member.facebook_link %}
+                            <a href="{{ team_member.facebook_link }}" class="fab fa-facebook"></a>
+                        {% endif %}
+                        {% if team_member.instagram_link %}
+                            <a href="{{ team_member.instagram_link }}" class="fab fa-instagram"></a>
+                        {% endif %}
+                        {% if team_member.twitter_link %}
+                            <a href="{{ team_member.twitter_link }}" class="fab fa-twitter"></a>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<section class="ftco-section testimony-section">
+	<div class="container">
+		<div class="row justify-content-center mb-5 pb-2">
+			<div class="col-md-8 text-center heading-section ftco-animate">
+				<h2 class="mb-4">{{ testimonials_section.title }}</h2>
+				<p>{{ testimonials_section.description }}</p>
+			</div>
+		</div>
+		<div class="row ftco-animate justify-content-center">
+			<div class="col-md-12">
+				<div class="carousel-testimony owl-carousel">
+					{% for testimonials in testimonials %}
+					<div class="item">
+						<div class="testimony-wrap d-flex">
+							<div class="user-img mr-4" style="background-image: url('{{ testimonials.user_img.url }}')">
+							</div>
+							<div class="text ml-2">
+								<span class="quote d-flex align-items-center justify-content-center">
+									<i class="icon-quote-left"></i>
+								</span>
+								<p>{{ testimonials.quote }}</p>
+								<p class="name">{{ testimonials.name }}</p>
+								<span class="position">{{ testimonials.position }}</span>
+							</div>
+						</div>
+					</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}

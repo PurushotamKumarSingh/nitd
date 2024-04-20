@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('{% static 'images/reading.png' %}');">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+          <h1 class="mb-2 bread">Reading . . .</h1>
+          <p class="breadcrumbs"><span class="mr-2"><a href="{% url 'index' %}">Home <i
+                  class="ion-ios-arrow-forward"></i></a></span> <span>Read Blog<i
+                class="ion-ios-arrow-forward"></i></span></p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+  <div class="container">
+      {% for post in blog_posts %}
+      <div class="col-md-12 col-lg-15 ftco-animate">
+          <div class="blog-entry">
+              <img src="{{ post.image1.url }}" class="block-20 d-flex align-items-end" style="height: 450px; width:100%;">
+          </div>
+          <h1>{{ post.title }}</h1>
+          <p>{{ post.content1 }}</p>
+          <p>{{ post.content2 }}</p>
+      </div>
+      <div class="col-md-12 col-lg-15 ftco-animate">
+        <div class="blog-entry">
+            <img src="{{ post.image2.url }}" class="block-20 d-flex align-items-end" style="height: 450px; width:100%;">
+        </div>
+        <p>{{ post.content1 }}</p>
+        <p>{{ post.content2 }}</p>
+    </div>
+      {% endfor %}
+      {% for testimonial in testimonials %}
+      <div class="item">
+          <div class="testimony-wrap d-flex">
+              <div class="user-img mr-4" style="background-image:url('{{ testimonial.image.url }}')"></div>
+              <div class="text ml-2">
+                  <span class="quote d-flex align-items-center justify-content-center"><i class="icon-quote-left"></i></span>
+                  <p class="name"><b>Posted By: {{ testimonial.author }}</b></p>
+                  <p>{{ testimonial.content }}</p>
+                  <style>
+                    
+                    .ftco-footer-social li a:hover .fab.fa-twitter {
+                        color: black;
+                    }
+                
+                    .ftco-footer-social li a:hover .fab.fa-facebook {
+                        color: blue;
+                    }
+                
+                    .ftco-footer-social li a:hover .fab.fa-instagram {
+                        color: red;
+                    }
+                </style>
+                  <ul class="ftco-footer-social list-unstyled float-md-center float-lft mt-3">
+                    <li class="ftco-animate"><a href="#"><span class="fab fa-twitter"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="fab fa-facebook"></span></a></li>
+                    <li class="ftco-animate"><a href="#"><span class="fab fa-instagram"></span></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      {% endfor %}
+  </div>
+</section>
+
+<div class="comment-box gradient-bg"
+    style=" background-color: #fff;
+    padding: 20px;
+    margin: 60px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 10px -1px rgba(0,0,0,0.5),0 -4px 10px rgba(0, 0, 0, 0.15);text-align: center;">
+    <h2 class="comment-title">Leave a Comment</h2>
+    <form method="post" action="{% url 'blogs' %}">
+      {% csrf_token %}
+      <div class="form-group">
+        <input type="text" name="name" class="form-control" placeholder="Enter your name">
+      </div>
+      <div class="form-group">
+        <input type="text" name="email" class="form-control" placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <textarea name="content" id="" cols="30" rows="2" class="form-control"
+            placeholder="Type your comment here" style=" padding:20px;"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary py-3 px-4">Submit</button>
+      </div>
+      </div>
+    </form>
+</div>
+
+{% endblock %}

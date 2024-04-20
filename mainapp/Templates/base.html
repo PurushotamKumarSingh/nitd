@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>NITD</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap"
+    rel="stylesheet">
+
+  {% load static %}
+  <link href="{%static 'css/style.css'%}" rel="stylesheet">
+  <link rel="shortcut icon" href="{%static 'images/nitdlogo-1.png''%}">
+  <link href="{%static 'css/open-iconic-bootstrap.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/animate.css'%}" rel="stylesheet">
+  <link href="{%static 'css/owl.carousel.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/owl.theme.default.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/magnific-popup.css'%}" rel="stylesheet">
+  <link href="{%static 'css/aos.css'%}" rel="stylesheet">
+  <link href="{%static 'css/ionicons.min.css'%}" rel="stylesheet">
+  <link href="{%static 'css/flaticon.css'%}" rel="stylesheet">
+  <link href="{%static 'css/style.css'%}" rel="stylesheet">
+  <link href="{%static 'css/css/bootstrap-reboot.css'%}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- <div class="splash-screen">
+    <div class="splash-animation">
+        <img src="{% static 'images\nitdlogo-1.png' %}" alt="Splash Image">
+    </div>
+</div> -->
+
+  <div class="bg-top navbar-light">
+    <div class="container">
+      {% for contact in contacts %}
+      <div class="row no-gutters d-flex align-items-center align-items-stretch">
+        <div class="col-md-4 d-flex align-items-center py-4">
+          <a class="navbar-brand" href="#">
+              {% if contact.image_url %}
+                  <img id="NITD" src="{{ contact.image_url.url }}" style="width: 190px; height: auto;">
+              {% else %}
+                  <p>No logo</p>
+              {% endif %}
+          </a>
+      </div>
+        <div class="col-lg-8 d-block">
+          <div class="row d-flex">
+            <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="icon-paper-plane fas fa-paper-plane"></span>
+                </div>
+                <div class="text">
+                    <span>Email</span>
+                    <span>{{ contact.email }}</span>
+                </div>
+            </div>
+            <div class="col-md d-flex topper align-items-center align-items-stretch py-md-4">
+                <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="icon-phone2 fas fa-tty"></span>
+                </div>
+                <div class="text">
+                    <span>Call</span>
+                    <span>Call Us: {{ contact.contact_number }}</span>
+                </div>
+            </div>
+            <div class="col-md topper d-flex align-items-center justify-content-end">
+              <p class="mb-0">
+                <button type="button"
+                  class="btn py-2 px-3 btn-primary d-flex align-items-center justify-content-center apply-now-btn"
+                  data-toggle="modal" data-target="#applicationModal">
+                  <span>Apply now</span>
+                </button>
+              </p>
+            </div>
+            <div class="modal fade" id="applicationModal" tabindex="-1" role="dialog"
+              aria-labelledby="applicationModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="applicationModalLabel">Apply Now</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form id="applicationForm" action="{% url 'submit_application' %}" method="post">
+                      {% csrf_token %}
+                      <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" class="form-control" id="name" name="name" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" id="email" name="email" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="course">Course</label>
+                        <input type="text" name="course" class="form-control" id="course" name="course" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="contact">Contact</label>
+                        <input type="text" name="contact" class="form-control" id="contact" name="contact" required>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center px-4">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+        aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+      <form action="#" class="searchform order-lg-last">
+        <div class="form-group d-flex">
+          <input type="text" class="form-control pl-3" placeholder="Search">
+          <button type="submit" placeholder="" class="form-control search"><span class="ion-ios-search"></span></button>
+        </div>
+      </form>
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item {% if request.path == '/' %}active{% endif %}">
+                <a href="{% url 'index' %}" class="nav-link pl-0">Home</a>
+            </li>
+            <li class="nav-item {% if request.path == '/about' %}active{% endif %}">
+                <a href="{% url 'about'%}" class="nav-link pl-0k">About</a>
+            </li>
+            <li class="nav-item {% if request.path == '/course' %}active{% endif %}">
+                <a href="{% url 'course' %}" class="nav-link pl-0">Courses</a>
+            </li>
+            <li class="nav-item {% if request.path == '/staff' %}active{% endif %}">
+                <a href="{% url 'staff' %}" class="nav-link pl-0">Staff</a>
+            </li>
+            <li class="nav-item {% if request.path == '/blog' %}active{% endif %}">
+                <a href="{% url 'blog' %}" class="nav-link pl-0">Blog</a>
+            </li>
+            <li class="nav-item {% if request.path == '/contact' %}active{% endif %}">
+                <a href="{% url 'contact' %}" class="nav-link pl-0">Contact</a>
+            </li>
+        </ul>
+    </div>
+    
+    </div>
+  </nav>
+
+  <!-- END nav -->
+  {% block content %}
+
+  {% endblock %}
+
+  <!--footer section-->
+  <footer class="ftco-footer ftco-bg-dark ftco-section">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-5">
+              <h2 class="ftco-heading-2">Have a Questions?</h2>
+              <div class="block-23 mb-3">
+                  <ul>
+                      <li><span class="icon fa fa-map-marker"></span><span class="text">{{ footer_contact.address }}</span></li>
+                      <li><a href="#"><span class="icon fas fa-phone-alt"></span><span class="text">{{ footer_contact.phone_number }}</span></a></li>
+                      <li><a href="#"><span class="icon fa fa-envelope"></span><span class="text">{{ footer_contact.email }}</span></a></li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-5">
+            <h2 class="ftco-heading-2">Powered By</h2>
+            <div class="block-21 mb-4 d-flex">
+              <a class="blog-img mr-4" style="background-image: url('{% static 'images/netcoreNew.png' %}');"></a>
+              <div class="text">
+                <p>The NITD is powered by NetcoreInfo Bussiness Group.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-5 ml-md-4">
+            <h2 class="ftco-heading-2">Links</h2>
+            <ul class="list-unstyled">
+              <li><a href="{% url 'index' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Home</a></li>
+              <li><a href="{% url 'about' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>About</a></li>
+              <li><a href="{% url 'course' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Services</a></li>
+              <li><a href="{% url 'index' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Deparments</a></li>
+              <li><a href="{% url 'contact' %}"><span class="ion-ios-arrow-round-forward mr-2"></span>Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="ftco-footer-widget mb-5">
+            <h2 class="ftco-heading-2">Subscribe Us!</h2>
+            <form action="#" class="subscribe-form">
+              <div class="form-group">
+                <input type="text" class="form-control mb-2 text-center" placeholder="Enter email address">
+                <input type="submit" value="Subscribe" class="form-control submit px-3">
+              </div>
+            </form>
+          </div>
+          <div class="ftco-footer-widget mb-5">
+            <h2 class="ftco-heading-2 mb-0">Connect With Us</h2>
+            <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-3">
+              <li class="ftco-animate"><a href="#"><span class="fab fa-twitter"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="fab fa-facebook"></span></a></li>
+              <li class="ftco-animate"><a href="#"><span class="fab fa-instagram"></span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <p>
+            Copyright &copy;
+            <script>document.write(new Date().getFullYear());</script> All rights reserved |<a href="#"
+              target="_blank">@Dev</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+      <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" />
+      <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+        stroke="#F96D00" />
+    </svg></div>
+
+  <script>
+    $(document).ready(function () {
+      // Show the modal when the "Apply now" button is clicked
+      $('.apply-now-btn').click(function (e) {
+        e.preventDefault();
+        $('#applicationModal').modal('show');
+      });
+
+      // Handle form submission
+      $('#applicationForm').submit(function (e) {
+        e.preventDefault();
+        var formData = $(this).serialize();
+        $.ajax({
+          type: 'POST',
+          url: '{% url "submit_application" %}', // Replace with your Django view URL
+          data: formData,
+          success: function (response) {
+            // Handle success, e.g., show a success message, close modal, etc.
+            $('#applicationModal').modal('hide');
+            alert('Application submitted successfully!');
+          },
+          error: function (error) {
+            // Handle errors, e.g., show an error message
+            console.error('Error submitting application:', error);
+          }
+        });
+      });
+    });
+  </script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/jquery.min.js' %}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+  <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/jquery.animateNumber.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+  <script src="{% static 'js/scrollax.min.js' %}"></script>
+  <script src="{% static 'js/google-map.js' %}"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+  <script src="{% static 'js/base.js' %}"></script>
+  <script src="https://kit.fontawesome.com/fc596df623.js" crossorigin="anonymous"></script>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+</body>
+
+</html>
