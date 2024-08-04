@@ -3,7 +3,13 @@
 
 The NITD website is a comprehensive platform for the NetcoreInfo Institute of Training and Development, built using HTML, CSS, JavaScript, Bootstrap, Python, and Django. It supports training, internships, and placement services, facilitating efficient management of training resources and career services. 
 
+
+
+## Demo Video
+
 https://github.com/user-attachments/assets/b29f67a9-2f84-420f-8acc-bb8d54591941
+
+
 
 ## NITD ScreenShot
 
