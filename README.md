@@ -11,7 +11,7 @@ https://github.com/user-attachments/assets/b29f67a9-2f84-420f-8acc-bb8d54591941
 
 
 
-## NITD Screen-Shot
+## Screen-Shot
 
 ![NITD ScreenShot](https://github.com/user-attachments/assets/624ace5c-9226-4163-8237-563186d737d7)
 
